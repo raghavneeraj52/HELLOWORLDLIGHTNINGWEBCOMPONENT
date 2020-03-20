@@ -1,0 +1,51 @@
+<template>
+<table class="slds-table slds-table--bordered slds-table--striped slds-table--cell-buffer slds-table--fixed-layout">
+    <tr class="slds-text-heading--label">
+        <th>
+            Name
+        </th>
+        <th>
+            Related Contact Records
+        </th>
+        <th>
+            Delete
+        </th>
+    </tr>
+    <template for:each={accounts.data} for:item="acc">
+    <tr key={acc.Id}>
+        <td>
+            {acc.Name}
+        </td>
+        <td>
+            <lightning-input type="radio" onchange={handleChange} value={acc.Id}></lightning-input>
+        </td>
+        <td>
+            <lightning-button label="Delete Account"  onclick={handleDelete} value={acc.Id}>
+            </lightning-button>
+        </td>
+    </tr>
+</template> 
+</table> 
+<template if:true={showConDetails}>
+    <table class="slds-table slds-table--bordered slds-table--striped slds-table--cell-buffer slds-table--fixed-layout">
+        <tr class="slds-text-heading--label">
+            <th>
+                Last Name
+            </th>
+            <th>
+               Account Namw
+            </th>
+        </tr>
+        <template for:each={contacts} for:item="con">
+        <tr key={con.Id}>
+            <td>
+                {con.Lastname}
+            </td>
+            <td>
+                {con.AccountId}
+            </td>
+        </tr>
+    </template> 
+    </table>
+</template>
+</template>

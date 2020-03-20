@@ -1,0 +1,26 @@
+<template>
+<table class="slds-table slds-table--bordered slds-table--striped slds-table--cell-buffer slds-table--fixed-layout">
+    <tr class="slds-text-heading--label">
+        <th>
+        FirstName
+        </th>
+        <th>
+        LastName  
+        </th>
+        <th>
+        Click me
+        </th>
+    </tr>
+    <template for:each={contacts.data} for:item="con">
+        <tr key ={con.Id}>
+            <td>{con.FirstName}</td>
+            <td>{con.LastName}</td>
+            <td>
+            <lightning-button label="Click Me" onclick={handleClick} variant ="brand" value={con.FirstName}>
+
+            </lightning-button>
+            </td>
+        </tr>
+    </template>
+</table>
+</template>
